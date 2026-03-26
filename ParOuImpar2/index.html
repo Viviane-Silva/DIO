@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Jogo: Par ou Ímpar</title>
+  </head>
+  <body>
+    <h2>Digite um número entre 1 e 10</h2>
+    <input type="number" id="numeroUsuario" min="1" max="10" />
+    <button id="btnVerificar">Verificar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+      function gerarNumeroComputador() {
+        return Math.floor(Math.random() * 10) + 1;
+      }
+
+      function verificarParOuImpar(soma) {
+        return soma % 2 === 0 ? "par" : "ímpar";
+      }
+
+      function jogar() {
+        const numeroUsuario = parseInt(
+          document.getElementById("numeroUsuario").value
+        );
+
+        if (!numeroUsuario || numeroUsuario < 1 || numeroUsuario > 10) {
+          alert("Digite um número válido entre 1 e 10!");
+          return;
+        }
+
+        const numeroComputador = gerarNumeroComputador();
+        const soma = numeroUsuario + numeroComputador;
+        const tipo = verificarParOuImpar(soma);
+
+        const resultado = `Você digitou ${numeroUsuario} e o computador gerou o número ${numeroComputador}. Soma dos números deu ${soma}, este número é ${tipo.toUpperCase()}`;
+        document.getElementById("resultado").innerText = resultado;
+      }
+
+      document.getElementById("btnVerificar").addEventListener("click", jogar);
+    </script>
+  </body>
+</html>

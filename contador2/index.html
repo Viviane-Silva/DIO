@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Contador de Cliques</title>
+  </head>
+  <body>
+    <button id="botaoClique">Clique aqui</button>
+    <p id="contador">Número de cliques: 0</p>
+
+    <script>
+      let contador = 0;
+
+      const botao = document.getElementById("botaoClique");
+      const textoContador = document.getElementById("contador");
+
+      botao.addEventListener("click", () => {
+        contador++;
+        textoContador.innerText = `Número de cliques: ${contador}`;
+      });
+    </script>
+  </body>
+</html>
